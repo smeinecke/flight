@@ -178,17 +178,6 @@ class Request {
 
             $this->query->setData($_GET);
         }
-
-        // Check for JSON input
-        if (strpos($this->type, 'application/json') === 0) {
-            $body = $this->getBody();
-            if ($body != '') {
-                $data = json_decode($body, true);
-                if ($data != null) {
-                    $this->data->setData($data);
-                }
-            }
-        }
     }
 
     /**

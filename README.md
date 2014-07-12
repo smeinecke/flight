@@ -1,6 +1,6 @@
 # What is Flight?
 
-Flight is a fast, simple, extensible framework for PHP. Flight enables you to 
+Flight is a fast, simple, extensible framework for PHP. Flight enables you to
 quickly and easily build RESTful web applications.
 
 ```php
@@ -676,7 +676,7 @@ user_agent - Browser information
 type - The content type
 length - The content length
 query - Query string parameters
-data - Post data or JSON data
+data - Post data
 cookies - Cookie data
 files - Uploaded files
 secure - Whether the connection is secure
@@ -705,15 +705,6 @@ To get the raw HTTP request body, for example when dealing with PUT requests, yo
 
 ```php
 $body = Flight::request()->getBody();
-```
-
-## JSON Input
-
-If you send request with the type `application/json` and the data `{"id": 123}` it will be availabe
-from the `data` property:
-
-```php
-$id = Flight::request()->data->id;
 ```
 
 # HTTP Caching
