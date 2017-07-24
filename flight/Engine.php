@@ -145,9 +145,9 @@ class Engine {
     /**
      * Custom exception handler. Logs exceptions.
      *
-     * @param \Exception $e Thrown exception
+     * @param \Throwable $e Thrown exception
      */
-    public function handleException(\Exception $e) {
+    public function handleException(\Throwable $e) {
         if ($this->get('flight.log_errors')) {
             error_log($e->getMessage());
         }
@@ -349,9 +349,9 @@ class Engine {
     /**
      * Sends an HTTP 500 response for any errors.
      *
-     * @param \Exception Thrown exception
+     * @param \Throwable Thrown exception
      */
-    public function _error(\Exception $e) {
+    public function _error(\Throwable $e) {
         $msg = sprintf('<h1>500 Internal Server Error</h1>'.
             '<h3>%s (%s)</h3>'.
             '<pre>%s</pre>',
@@ -366,7 +366,7 @@ class Engine {
                 ->write($msg)
                 ->send();
         }
-        catch (\Exception $ex) {
+        catch (\Throwable $ex) {
             exit($msg);
         }
     }
@@ -453,7 +453,7 @@ class Engine {
             ->write($json)
             ->send();
     }
-	
+
     /**
      * Sends a JSONP response.
      *
